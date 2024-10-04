@@ -42,7 +42,16 @@ public class PedidoFisico extends Pedido {
 	@Override
 	public void gerarRelatorio() {
 		
+		System.out.println("Vendedor: " + this.nomeDoVendedor);
+		System.out.println("Cliente: " + super.getCliente().obterDetalhesDoCliente());
+		System.out.print("Pedido " + super.getNumeroDoPedido() + ": ");
+		System.out.println(super.getDataPedido() + " | " + super.getStatusPedido().name());
+		System.out.println("Itens: ");
+		for (Item item : super.getItens()) {
+			System.out.println(item.toString());
+		}
 		
+		System.out.println("Total: R$" + String.format("%.2f", this.calcularValorTotal()));
 		
 	}
 	

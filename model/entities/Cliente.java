@@ -41,9 +41,9 @@ public class Cliente {
 	public String obterDetalhesDoCliente() {
 		StringBuilder stb = new StringBuilder();
 		
-		stb.append("Nome: " + this.nome);
+		stb.append(this.nome);
 		stb.append(" | CPF: " + this.cpf);
-		stb.append(" | E-mail: " + this.cpf);
+		stb.append(" | E-mail: " + this.email);
 		
 		return stb.toString();
 	}

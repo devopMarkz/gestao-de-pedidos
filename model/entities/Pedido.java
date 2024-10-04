@@ -67,13 +67,6 @@ public abstract class Pedido {
 	
 }
 
-
-
-
-
-
-
-
 //// CONSTRUTOR PARA PEDIDO EM_PROCESSAMENTO 
 //public Pedido(Integer numeroDoPedido, Cliente cliente) {
 //	this.numeroDoPedido = numeroDoPedido;
