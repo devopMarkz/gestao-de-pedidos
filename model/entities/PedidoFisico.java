@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import model.entities.enums.StatusPedido;
+import model.entities.enums.TipoDoPedido;
 
 public class PedidoFisico extends Pedido {
 	
@@ -11,8 +12,8 @@ public class PedidoFisico extends Pedido {
 	
 	// CONSTRUTOR
 	
-	public PedidoFisico(Integer numeroDoPedido, LocalDate dataPedido, List<Item> itens, Cliente cliente, StatusPedido statusPedido, String nomeDoVendedor) {
-		super(numeroDoPedido, dataPedido, itens, cliente, statusPedido);
+	public PedidoFisico(Integer numeroDoPedido, LocalDate dataPedido, List<Item> itens, Cliente cliente, StatusPedido statusPedido, TipoDoPedido tipoDoPedido, String nomeDoVendedor) {
+		super(numeroDoPedido, dataPedido, itens, cliente, statusPedido, tipoDoPedido);
 		this.nomeDoVendedor = nomeDoVendedor;
 	}
 

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import model.entities.enums.StatusPedido;
+import model.entities.enums.TipoDoPedido;
 
 public abstract class Pedido {
 	
@@ -12,17 +13,19 @@ public abstract class Pedido {
 	private List<Item> itens;
 	private Cliente cliente;
 	private StatusPedido statusPedido;
+	private TipoDoPedido tipoDoPedido;
 	
 	public Pedido() {
 	}
 	
 	// CONSTRUTOR GERAL PARA RECEBER DE ARQUIVOS O OBJETO
-	public Pedido(Integer numeroDoPedido, LocalDate dataPedido, List<Item> itens, Cliente cliente, StatusPedido statusPedido) {
+	public Pedido(Integer numeroDoPedido, LocalDate dataPedido, List<Item> itens, Cliente cliente, StatusPedido statusPedido, TipoDoPedido tipoDoPedido) {
 		this.numeroDoPedido = numeroDoPedido;
 		this.dataPedido = dataPedido;
 		this.itens = itens;
 		this.cliente = cliente;
 		this.statusPedido = statusPedido;
+		this.tipoDoPedido = tipoDoPedido;
 	}
 	
 	// GETTERS E SETTERS
@@ -53,6 +56,14 @@ public abstract class Pedido {
 
 	public LocalDate getDataPedido() {
 		return dataPedido;
+	}
+	
+	public TipoDoPedido getTipoDoPedido() {
+		return this.tipoDoPedido;
+	}
+	
+	public void setTipoDoPedido(TipoDoPedido tipoDoPedido) {
+		this.tipoDoPedido = tipoDoPedido;
 	}
 	
 	// MÉTODOS DA CLASSE

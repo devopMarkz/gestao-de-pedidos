@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import model.entities.enums.StatusPedido;
+import model.entities.enums.TipoDoPedido;
 
 public class PedidoOnline extends Pedido {
 	
@@ -16,8 +17,8 @@ public class PedidoOnline extends Pedido {
 		super();
 	}
 	
-	public PedidoOnline(Integer numeroDoPedido, LocalDate dataPedido, List<Item> itens, Cliente cliente, StatusPedido statusPedido, String enderecoDeEntrega, Double taxaDeEntrega) {
-		super(numeroDoPedido, dataPedido, itens, cliente, statusPedido);
+	public PedidoOnline(Integer numeroDoPedido, LocalDate dataPedido, List<Item> itens, Cliente cliente, StatusPedido statusPedido, TipoDoPedido tipoDoPedido, String enderecoDeEntrega, Double taxaDeEntrega) {
+		super(numeroDoPedido, dataPedido, itens, cliente, statusPedido, tipoDoPedido);
 		this.enderecoDeEntrega = enderecoDeEntrega;
 		this.taxaDeEntrega = taxaDeEntrega;
 	}
