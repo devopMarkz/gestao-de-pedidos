@@ -52,9 +52,8 @@ public class Item {
 	@Override
 	public String toString() {
 		return produto.toString()
-				+ " | Quantidade: " + this.quantidade
-				+ " | V. Unitário: R$" + String.format("%.2f", this.precoUnitario)
-				+ " | Subtotal: R$" + String.format("%.2f", this.calcularValorDoItem());
+				+ "," + this.quantidade
+				+ "," + String.format("%.2f", this.precoUnitario);
 	}
 
 }

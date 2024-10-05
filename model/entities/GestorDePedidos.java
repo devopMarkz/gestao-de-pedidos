@@ -1,5 +1,6 @@
 package model.entities;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +37,12 @@ public class GestorDePedidos {
 		this.getPedidos().add(pedido);
 	}
 	
-	public void salvarPedidosEmArquivo() {
+	public void salvarPedidosEmArquivo(String caminhoDoArquivo, Integer idDoPedido) {
+		try {
+			processadorArquivo.salvarPedidos(caminhoDoArquivo, idDoPedido, this);
+		} catch (IOException e) {
+			System.out.println("Erro na escrita de dados no arquivo.");
+		}
 		
 	}
 
