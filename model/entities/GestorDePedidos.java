@@ -43,7 +43,10 @@ public class GestorDePedidos {
 		} catch (IOException e) {
 			System.out.println("Erro na escrita de dados no arquivo.");
 		}
-		
+	}
+	
+	public void carregarPedidosDeArquivo(String caminhoDoArquivo, Integer idDoPedido) throws IOException {
+		processadorArquivo.carregarPedidos(caminhoDoArquivo, idDoPedido, this);
 	}
 
 }

@@ -65,7 +65,7 @@ public class PedidoFisico extends Pedido {
 			stb.append(item.toString() + "\n");
 		}
 		
-		return String.format("%d,%s,%s,%s,%s%n%s", super.getNumeroDoPedido(), super.getTipoDoPedido().name(), super.getDataPedido(), super.getCliente().getCpf(), super.getStatusPedido().name(), stb);
+		return String.format("%d,%s,%s,%s,%s,%s,%s,%s%n%s", super.getNumeroDoPedido(), super.getTipoDoPedido().name(), super.getDataPedido(), super.getCliente().getNome(), super.getCliente().getCpf(), super.getCliente().getEmail(),super.getStatusPedido().name(), this.nomeDoVendedor, stb);
 	}
 
 }

@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class Program {
 		
 		GestorDePedidos g = new GestorDePedidos(new ProcessaArquivoTxt());
 		
-		Pedido p = new PedidoFisico(g.getPedidos().size(), LocalDate.now(), new ArrayList<>(), new Cliente("Marcos", "6171717626", "marcos@gmail.com"), StatusPedido.EM_PROCESSAMENTO, TipoDoPedido.FISICO, "Vitor");
+		PedidoFisico p = new PedidoFisico(g.getPedidos().size(), LocalDate.now(), new ArrayList<>(), new Cliente("Marcos", "6171717626", "marcos@gmail.com"), StatusPedido.EM_PROCESSAMENTO, TipoDoPedido.FISICO, "Vitor");
 		p.adicionarItem(new Item(new Produto("TV"), 2, 2000.0));
 		g.adicionarPedido(p);
 		
@@ -27,10 +28,46 @@ public class Program {
 		p.adicionarItem(new Item(new Produto("TV"), 2, 2000.0));
 		g.adicionarPedido(p);
 		
+		// MÉTODOS PARA SALVAR PEDIDOS NUM ARQUIVO BASEADO NO ID DO PEDIDO
 		for (Pedido pedido : g.getPedidos()) {
 			g.salvarPedidosEmArquivo("C:\\Users\\Marcos Andre\\Desktop\\javaArqs\\sistema-de-pedidos\\sistema-pedidos\\src\\pedidos", pedido.getNumeroDoPedido());
 		}
 		
+		try {
+			
+			// MÉTODOS PARA CARREGAR PEDIDOS DE UM ARQUIVO PARTINDO DE SEU ID
+			g.carregarPedidosDeArquivo("C:\\Users\\Marcos Andre\\Desktop\\javaArqs\\sistema-de-pedidos\\sistema-pedidos\\src\\pedidos", 0);
+			g.carregarPedidosDeArquivo("C:\\Users\\Marcos Andre\\Desktop\\javaArqs\\sistema-de-pedidos\\sistema-pedidos\\src\\pedidos", 1);
+			
+			for (Pedido pedido : g.getPedidos()) {
+				System.out.println(pedido.toString());
+			}
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
