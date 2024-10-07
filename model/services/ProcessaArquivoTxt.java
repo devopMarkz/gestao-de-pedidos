@@ -2,6 +2,7 @@ package model.services;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,7 +22,7 @@ import model.entities.enums.TipoDoPedido;
 public class ProcessaArquivoTxt implements ProcessadorArquivo {
 
 	@Override
-	public void carregarPedidos(String caminhoDoArquivo, Integer idDoPedido, GestorDePedidos gestorDePedidos) throws IOException {
+	public void carregarPedidos(File caminhoDoArquivo, Integer idDoPedido, GestorDePedidos gestorDePedidos) throws IOException {
 		List<Item> itens = new ArrayList<>();
 		
 		try (Scanner sc = new Scanner(new BufferedReader(new FileReader(caminhoDoArquivo + "//pedido_" + idDoPedido + ".txt")))){
@@ -60,7 +61,7 @@ public class ProcessaArquivoTxt implements ProcessadorArquivo {
 	}
 
 	@Override
-	public void salvarPedidos(String caminhoDoArquivo, Integer idDoPedido, GestorDePedidos gestorDePedidos) throws IOException {
+	public void salvarPedidos(File caminhoDoArquivo, Integer idDoPedido, GestorDePedidos gestorDePedidos) throws IOException {
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoDoArquivo + "//pedido_" + idDoPedido + ".txt"))) {
 			
 			if(gestorDePedidos.getPedidos().get(idDoPedido) instanceof PedidoFisico) {
