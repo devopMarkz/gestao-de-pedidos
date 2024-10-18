@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 
 import model.entities.Cliente;
 import model.entities.GestorDePedidos;
@@ -23,6 +24,7 @@ public class Program {
 		
 		PedidoFisico p = new PedidoFisico(g.getPedidos().size(), LocalDate.now(), new ArrayList<>(), new Cliente("Marcos", "6171717626", "marcos@gmail.com"), StatusPedido.EM_PROCESSAMENTO, TipoDoPedido.FISICO, "Vitor");
 		p.adicionarItem(new Item(new Produto("TV"), 2, 2000.0));
+		p.adicionarItem(new Item(new Produto("Geladeira"), 2, 2000.0));
 		g.adicionarPedido(p);
 		
 		p = new PedidoFisico(g.getPedidos().size(), LocalDate.now(), new ArrayList<>(), new Cliente("André", "12433443", "andre@gmail.com"), StatusPedido.EM_PROCESSAMENTO, TipoDoPedido.FISICO, "Vitor");
@@ -49,9 +51,7 @@ public class Program {
 			System.out.println(e.getMessage());
 		}
 		
-		for (Pedido pedido : g.getPedidos()) {
-			System.out.println(pedido.toString());
-		}
+		new LinkedHashSet<Pedido>(g.getPedidos()).forEach(System.out::println);
 		
 		
 	}
